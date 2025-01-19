@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Diary</title>
+    <link rel="stylesheet" href="./cssgroup/groupdiary.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h2 class="title">Group Diary</h2>
+    <table class="table-container" id="diary-table">
+        <thead>
+            <tr class="title-row">
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Công việc được giao</th>
+                <th>Kết quả</th>
+                <th>Tiến độ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Content will be dynamically generated here -->
+        </tbody>
+    </table>
+
+    <div class="week-info">
+        <div class="week-navigation">
+            <span id="prev-week" class="arrow">&#8592;</span>
+            <span class="week-label" id="current-week">Week 1</span>
+            <span id="next-week" class="arrow">&#8594;</span>
+        </div>
+    </div>
+
+    <script>
+        const weeklyData = [
+            {
+                week: 1, 
+                tasks: [
+                    { stt: 1, msv: "23130386", name: "Đặng Tuấn Vũ", task: "Yêu cầu chức năng: About & Implementation", result: "Hoàn thành", progress: "100%" },
+                    { stt: 2, msv: "23130384", name: "Trần Công Vinh", task: "Yêu cầu chức năng: Login & Contact", result: "Hoàn thành", progress: "100%" },
+                    { stt: 3, msv: "23130359", name: "Võ Trần Ngọc Trường", task: "Yêu cầu chức năng: Home & Group Diary", result: "Hoàn thành", progress: "100%" },
+                    { stt: 4, msv: "23130397", name: "Trần Thúy Vy", task: "Yêu cầu chức năng: Design & Footer", result: "Hoàn thành", progress: "100%" },
+                    { stt: 5, msv: "23130025", name: "Trang Gia Bảo", task: "Yêu cầu chức năng: Menu project & Requirement", result: "Hoàn thành", progress: "100%" },
+                ]
+            },
+            {
+                week: 2,
+                tasks: [
+                    { stt: 1, msv: "23130386", name: "Đặng Tuấn Vũ", task: "Yêu cầu chức năng: Today's Deals, Header, Result & Style Guide", result: "Hoàn thành", progress: "100%" },
+                    { stt: 2, msv: "23130384", name: "Trần Công Vinh", task: "Yêu cầu chức năng: Gift cards", result: "Hoàn thành", progress: "100%" },
+                    { stt: 3, msv: "23130359", name: "Võ Trần Ngọc Trường", task: "Yêu cầu chức năng: Registry & Footer", result: "Hoàn thành", progress: "100%" },
+                    { stt: 4, msv: "23130397", name: "Trần Thúy Vy", task: "Yêu cầu chức năng: Sell", result: "Hoàn thành", progress: "100%" },
+                    { stt: 5, msv: "23130025", name: "Trang Gia Bảo", task: "Yêu cầu chức năng: Custom Service", result: "Hoàn thành", progress: "100%" },
+                ]
+            },
+        ];
+
+        let currentWeek = 0;
+        
+        function updateWeekDisplay(weekIndex) {
+            var currentWeekLabel = document.getElementById("current-week");
+            currentWeekLabel.innerText = "Week " + (weekIndex + 1);
+
+            const weekData = weeklyData[weekIndex];
+            const table = document.getElementById("diary-table");
+            const tbody = table.querySelector("tbody");
+
+            tbody.innerHTML = '';
+
+            weekData.tasks.forEach(task => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${task.stt}</td>
+                    <td>${task.msv}</td>
+                    <td>${task.name}</td>
+                    <td>${task.task}</td>
+                    <td>${task.result}</td>
+                    <td>${task.progress}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            const numRowsToAdd = 5 - weekData.tasks.length;
+            for (let i = 0; i < numRowsToAdd; i++) {
+                const emptyRow = document.createElement("tr");
+                emptyRow.classList.add("empty-row");
+                emptyRow.innerHTML = `<td colspan="6"></td>`;
+                tbody.appendChild(emptyRow);
+            }
+
+            if (weekIndex === 0) {
+                document.getElementById("prev-week").style.display = "none";
+            } else {
+                document.getElementById("prev-week").style.display = "inline";
+            }
+        }
+
+        updateWeekDisplay(currentWeek);
+
+        document.getElementById("prev-week").addEventListener("click", function() {
+            if (currentWeek > 0) {
+                currentWeek--;
+                updateWeekDisplay(currentWeek);
+            }
+        });
+
+        document.getElementById("next-week").addEventListener("click", function() {
+            if (currentWeek < weeklyData.length - 1) {
+                currentWeek++;
+                updateWeekDisplay(currentWeek);
+            }
+        });
+    </script>
+
+</body>
+</html>

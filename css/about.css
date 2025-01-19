@@ -1,0 +1,128 @@
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #f5f5f5;
+}
+.container {
+    width: 90%;
+    max-width: 720px;
+    margin: 20px auto;
+    background: #3b4a5a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #1abc9c;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.header .info h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-bottom: 5px;
+}
+.header .info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+.header img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #1abc9c;
+}
+.position-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    color: #e67e22;
+    margin-top: -15px;
+}
+.section {
+    margin-bottom: 20px;
+}
+.section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 3px;
+}
+.section h2::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background-color: #e67e22;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.item p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+.skill {
+    width: 48%;
+    margin-bottom: 10px;
+}
+.skill p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+.skill-bar {
+    width: 100%;
+    background-color: #555;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #e67e22, #1abc9c);
+}
+.soft-skills li {
+    padding: 3px 0;
+    font-size: 14px;
+    color: #c0c0c0;
+    list-style-type: none;
+    position: relative;
+}
+.soft-skills li::before {
+    content: "\2022";
+    color: #1abc9c;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+.decoration {
+    text-align: center;
+    margin-top: 15px;
+}
+.decoration svg {
+    width: 40px;
+    height: auto;
+   color: #1abc9c;
+}

@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+}
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+.table-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    border-collapse: collapse;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.title-row th {
+    font-family: 'Dancing Script', cursive;
+    background-color: #008dac;
+    font-size: 2em;
+    font-weight: bold;
+}
+.week-info {
+    text-align: center;
+    margin-top: 20px;
+}
+.week-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.arrow {
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+}
+.week-label {
+    font-size: 24px;
+    font-weight: bold;
+}
+.empty-row td {
+    height: 50px;
+}

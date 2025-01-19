@@ -1,0 +1,132 @@
+/* header-top */
+.header-top {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.header-top a {
+    color: white;
+    text-decoration: none;
+}
+/* header */
+.collapse.navbar-collapse {
+    justify-content: end;
+}
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    font-weight: bold;
+}
+/* background */
+.hero {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+}
+.hero-content {
+    max-width: 800px;
+    margin-left: 50px;
+    color: #fff;
+    transform: translateY(110%);
+}
+.hero-content h1 {
+    font-size: 60px;
+    color: #fff;
+    text-align: left;
+}
+.hero-content h1 span {
+    color: #fff;
+}
+  .hero-content p {
+    font-size: 25px;
+    margin: 20px 0;
+    text-align: left;
+}
+.hero-content a .btn-primary {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    text-align: left;
+    width: 120px;
+}
+.hero-content .btn-primary:hover {
+    background-color: #0056b3;
+}
+.view-switcher {
+    margin: 10px;
+    text-align: center;
+}
+.view-switcher button {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.tablet-view nav ul {
+    gap: 10px;
+}
+.tablet-view .hero h1 {
+    font-size: 32px;
+}
+.tablet-view .hero-content {
+    margin-left: 20px;
+}
+.tablet-view .hero {
+    height: 60vh;
+    padding: 40px 20px;
+}
+.mobile-view .header-top {
+    flex-direction: column;
+    text-align: center;
+}
+.mobile-view nav {
+    padding: 10px 20px;
+}
+.mobile-view nav ul {
+    flex-direction: column;
+    gap: 10px;
+}
+.mobile-view .hero h1 {
+    font-size: 28px;
+}
+.mobile-view .hero p {
+    font-size: 16px;
+}
+.mobile-view .hero-content {
+    margin-left: 0;
+}
+.slider {
+    margin-top: 56px;
+    max-height: 700px;
+    overflow: hidden;
+}
+.slider img {
+    width: 100%;
+    height: auto;
+}
+.slider .slick-initialized .slick-slide {
+    width: 100%;
+}
+.bg-slider {
+    position: relative;
+}
+.overflow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: #413f3f66;
+}
