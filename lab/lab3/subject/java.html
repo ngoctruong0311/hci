@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .subject {
+            display: flex;
+        }
+
+        .lessons h1 {
+            margin: 0;
+        }
+
+        .lessons {
+            height: 640px;
+            width: 250px;
+            border-right: 1px solid #ccc;
+            padding: 10px 20px;
+        }
+
+        .lessons ul {
+            padding: 0;
+        }
+
+        .lessons ul li {
+            list-style: none;
+            width: calc(100% - 40px);
+            border: 1px solid #ccc;
+            padding: 15px 20px;
+            border-bottom: none;
+            color: rgb(0, 81, 255);
+            cursor: pointer;
+        }
+
+        .lessons ul li:first-child {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .lessons ul li:last-child {
+            border-bottom: 1px solid #ccc;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .lesson-content {
+            width: calc(100% - 250px);
+            padding: 10px 20px;
+        }
+
+        .lesson-content h1 {
+            margin: 0;
+        }
+
+        .lessons ul li:hover {
+            background: rgb(0, 81, 255);
+            color: #fff;
+            border: 1px solid rgb(0, 81, 255);
+        }
+        
+        .lessons ul li.active {
+            background: rgb(0, 81, 255);
+            color: #fff;
+        }
+
+        .info {
+            height: calc(100vh - 200px);
+            width: 100%;
+            display: none;
+        }
+
+        .info.active {
+            display: block;
+        }
+
+        .info iframe {
+            height: 100%;
+            width: calc(100% - 5px);
+        }
+
+        .return {
+            border-top: 1px solid #ccc;
+        }
+
+        .return button {
+            position: absolute;
+            right: 40px;
+            bottom: 15px;
+            padding: 12px 20px;
+            background: rgb(0, 81, 255);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .return button:hover {
+            background: #fff;
+            color: rgb(0, 81, 255);
+            border: 1px solid rgb(0, 81, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="subject">
+        <div class="lessons">
+            <h1>Lessons</h1>
+            <ul> 
+                <li class="menu-li active" onclick="openCity('intro')">1. Introduction</li>
+                <li class="menu-li" onclick="openCity('lesson')">2. Lessons</li>
+                <li class="menu-li" onclick="openCity('exercise')">3. Exercise</li>
+                <li class="menu-li" onclick="openCity('references')">4. References</li>
+            </ul>
+        </div>
+        <div class="lesson-content">
+            <h1>Lesson Content</h1>
+            <div id="intro" class="info active">
+                <h2>1. Introduction</h2>
+                <iframe src="../pdf/intro-java.pdf" frameborder="0"></iframe>
+            </div>
+            <div id="lesson" class="info">
+                <h2>2. Lessons</h2>
+                <iframe src="../pdf/lesson-java.pdf" frameborder="0"></iframe>
+            </div>
+            <div id="exercise" class="info">
+                <h2>3. Exercise</h2>
+                <iframe src="../pdf/lesson-java.pdf" frameborder="0"></iframe>
+            </div>
+            <div id="references" class="info">
+                <h2>4. References</h2>
+                <div class="link">
+                    <a href="https://www.w3schools.com/">w3schools</a><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="return">
+        <button onclick="goBack()">Back To List</button>
+    </div>
+
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("info");
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.remove("active");
+            }
+            var y = document.getElementsByClassName("menu-li");
+            for (i = 0; i < y.length; i++) {
+                y[i].classList.remove("active");
+            }
+            
+            document.getElementById(cityName).classList.add("active");
+            document.querySelector(`li[onclick="openCity('${cityName}')"]`).classList.add("active");
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
